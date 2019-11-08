@@ -1,5 +1,5 @@
 module ImmGen(imm_in, ImmSel, imm_out);
-    input [31:7] imm_in;
+    input [31:0] imm_in;    // inst
     input [2:0] ImmSel;
 
     output reg [31:0] imm_out;

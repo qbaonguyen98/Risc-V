@@ -9,8 +9,8 @@ module IMEM(PC, inst);
     parameter	MEM_WIDTH_LENGTH = 32;          
     parameter	MEM_DEPTH = 1<<18;              
 
-    output	reg	[INST_WIDTH_LENGTH-1:0]inst;
-    input		[PC_WIDTH_LENGTH-1:0]PC;
+    output	reg	[INST_WIDTH_LENGTH-1:0] inst;
+    input		[PC_WIDTH_LENGTH-1:0] PC;
 
     /********* Instruction Memmory *************/
     reg		[MEM_WIDTH_LENGTH-1:0] IMEM[0:MEM_DEPTH-1];         // 2-dimension array
@@ -22,7 +22,7 @@ module IMEM(PC, inst);
     assign		pByte = PC[1:0];
 
     initial begin
-    $readmemh("D:/Computer_Architech/testcode.txt",IMEM);
+    $readmemh("D:/Computer_Architech/testcode.txt",IMEM);       // change this to your path
     end
 
     always@(PC)
@@ -32,5 +32,4 @@ module IMEM(PC, inst);
         else
             inst <= 'hz;
     end
-
 endmodule

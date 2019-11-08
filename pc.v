@@ -11,7 +11,7 @@ module pc(clk, rst, pc_in, pc_out);
 
     always@ (posedge clk) begin
     if (rst==1)
-        pc_out = 32'b00000000_00000000_00000000_00000000;
+        pc_out <= 32'b00000000_00000000_00000000_00000000;
     else 
-        pc_out=pc_in;    
+        pc_out <= pc_in;    
 endmodule
