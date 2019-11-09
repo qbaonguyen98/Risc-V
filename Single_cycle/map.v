@@ -24,6 +24,6 @@ module map(rst, clk);
     ALU ALU(alumux1_out, alumux2_out, aluop, aluout);
     DMEM DMEM(clk, aluout, rs2_out, dmem_sel, WSel, RSel, dmem_out);
     mux3 wbmux(wbmux_sel, dmem_out, aluout, pc_plus4_out, wb_out);
-    Control_Unit CU(inst, br_eq, br_lt, pcmux_sel, imm_sel, regfilemux_sel, cmpop, alumux2_sel, alumux1_sel, aluop, dmem_sel, wbmux_sel);
+    Control_Unit CU(inst, br_eq, br_lt, pcmux_sel, imm_sel, regfilemux_sel, cmpop, alumux2_sel, alumux1_sel, aluop, dmem_sel, RSel, WSel, wbmux_sel);
                 
 endmodule
