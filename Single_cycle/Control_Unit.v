@@ -88,7 +88,7 @@ module Control_Unit(
                 endcase
             end
 
-            B: begin        // CHANGE THIS !!!
+            B: begin
                 case (inst[14:12])
                     BEQ: begin
                         if (BrEq == 1)      data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
