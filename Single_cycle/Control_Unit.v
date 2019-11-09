@@ -1,26 +1,26 @@
 module Control_Unit(
     inst, BrEq, BrLt,       // input
-    PCSel, ImmSel, RegWEn, BrUn, BSel, ASel, ALUSel, MemRW, WBSel   // output
+    PCSel, ImmSel, RegWEn, BrUn, BSel, ASel, ALUSel, MemRW, RSel, WSel, WBSel   // output
 );
     input [31:0] inst;
     input BrEq, BrLt;
 
     output reg PCSel, RegWEn, BrUn, BSel, ASel, MemRW;
-    output reg [1:0] WBSel;
-    output reg [2:0] ImmSel;
+    output reg [1:0] WBSel, WSel;
+    output reg [2:0] ImmSel, RSel;
     output reg [3:0] ALUSel;
     
     // Control Unit output data
-    reg [14:0]data_out; // PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_ImmSel(3)_ALUSel(4)
+    reg [19:0] data_out; // PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_WSel(2)_RSel(3)_ImmSel(3)_ALUSel(4)
 
     // Command classes
-    parameter [5:0] R = 5'b01100;
-    parameter [5:0] I_arith = 5'b00100;
-    parameter [5:0] I_load = 5'b00000;
-    parameter [5:0] S = 5'b01000;
-    parameter [5:0] B = 5'b11000;
-    parameter [5:0] JAL = 5'b11011;
-    parameter [5:0] JALR = 5'b11001;
+    parameter R = 5'b01100;
+    parameter I_arith = 5'b00100;
+    parameter I_load = 5'b00000;
+    parameter S = 5'b01000;
+    parameter B = 5'b11000;
+    parameter JAL = 5'b11011;
+    parameter JALR = 5'b11001;
 
     // Command code --> distinguish 1 command from others in a command class
     parameter 
@@ -38,7 +38,7 @@ module Control_Unit(
             R: begin
                 case (inst[14:12])
                     ADD_SUB: begin
-                        if (inst[30] == 0)  data_out <=
+                        if (inst[30] == 0)  data_out <= 15'b0_1_z_0_0_0_01_zzz_0000;
                         else    data_out <= 
                     end
                     SLL:    data_out <=
@@ -104,14 +104,16 @@ module Control_Unit(
             JALR:   data_out <=
         endcase
 //  Assign value of every single output: 
-//  data_out[14:0] = PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_ImmSel(3)_ALUSel(4)
-        PCSel <= data_out[14];
-        RegWEn <= data_out[13];
-        BrUn <= data_out[12];
-        BSel <= data_out[11];
-        ASel <= data_out[10];
-        MemRW <= data_out[9];
-        WBSel <= data_out[8:7];
+//  data_out[14:0] = PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_WSel(2)_RSel(3)_ImmSel(3)_ALUSel(4)
+        PCSel <= data_out[19];
+        RegWEn <= data_out[18];
+        BrUn <= data_out[17];
+        BSel <= data_out[16];
+        ASel <= data_out[15];
+        MemRW <= data_out[14];
+        WBSel <= data_out[13:12];
+        WSel <= data_out[11:10];
+        RSel <= data_out[9:7];
         ImmSel <= data_out[6:4];
         ALUSel <= data_out[3:0];
     end
