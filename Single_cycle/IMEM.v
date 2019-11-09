@@ -15,14 +15,14 @@ module IMEM(PC, inst);
     /********* Instruction Memmory *************/
     reg		[MEM_WIDTH_LENGTH-1:0] IMEM[0:MEM_DEPTH-1];         // 2-dimension array
 
-    wire		[29:0]pWord;
+    wire		[17:0]pWord;
     wire		[1:0]pByte;
 
-    assign		pWord = PC[31:2];
+    assign		pWord = PC[19:2];
     assign		pByte = PC[1:0];
 
     initial begin
-    $readmemh("D:/Computer_Architech/testcode.txt",IMEM);       // change this to your path
+    $readmemh("../factorial.txt",IMEM);       // change this to your path
     end
 
     always@(PC)

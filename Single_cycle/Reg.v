@@ -12,7 +12,7 @@ module Reg(clk, RegWEn, inst, DataD, DataA, DataB);
     assign AddrA = inst[19:15];     // rs1
     assign AddrB = inst[24:20];     // rs2
 
-    assign DataA = |AddrA ? data[AddrA] : 0;        // |x nghia la lay cac bit trong x OR lai voi nhau
+    assign DataA = |AddrA ? data[AddrA] : 0;        // |x nghia la lay cac bit trong x OR lai voi nhau --> r0 luon = 0 
     assign DataB = |AddrB ? data[AddrB] : 0;
 
     initial begin
@@ -22,6 +22,6 @@ module Reg(clk, RegWEn, inst, DataD, DataA, DataB);
     always@ (posedge clk) begin
         data[0] <= 32'b0;            //  r0 luon = 0
         if (RegWEn)
-            data[AddrD] <= DataD;    // cho phep ghi ket qua vao rd
+            data[AddrD] <= DataD;    // ghi ket qua vao rd
     end
 endmodule
