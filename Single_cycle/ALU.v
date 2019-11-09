@@ -4,7 +4,7 @@ module ALU(alumux1_out, alumux2_out, aluop, aluout);
 
     output reg [31:0] aluout;
     
-    always @(aluop or alumux1_out or alumux2_out) begin
+    always @(*) begin
         case (aluop)
             0:  // ADD
                 aluout <= alumux1_out + alumux2_out;

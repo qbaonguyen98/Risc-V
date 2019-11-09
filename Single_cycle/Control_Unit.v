@@ -15,7 +15,7 @@ module Control_Unit(
 
     // Command classes
     parameter [5:0] R = 5'b01100;
-    parameter [5:0] I_compute = 5'b00100;
+    parameter [5:0] I_arith = 5'b00100;
     parameter [5:0] I_load = 5'b00000;
     parameter [5:0] S = 5'b01000;
     parameter [5:0] B = 5'b11000;
@@ -34,6 +34,72 @@ module Control_Unit(
         AND = 3'b111, ANDI = 3'b111, BGEU = 3'b111;
         // JAL --> in case you forgot it 
     
+    always@ (*) begin
+       case (inst[6:2])
+            R: begin
+                case (inst[14:12])
+                    ADD:
+                    SUB:
+                    SLL:
+                    SLT:
+                    SLTU:
+                    XOR:
+                    SRL:
+                    SRA:
+                    OR:
+                    AND:
+                endcase
+            end
+            
+            I_arith: begin
+                case (inst[14:12])
+                    ADDI:
+                    SLTI:
+                    SLTIU:
+                    XORI:
+                    ORI:
+                    ANDI:
+                    SLLI:
+                    SRLI:
+                    SRAI:
+                endcase
+            end
 
+            I_load: begin
+                case (inst[14:12])
+                    LB:
+                    LH:
+                    LW:
+                    LBU:
+                    LHU:
+                endcase
+            end
 
+            S: begin
+                case (inst[14:12])
+                    SB:
+                    SH:
+                    SW:
+                endcase
+            end
+
+            B: begin
+                case (inst[14:12])
+                    BEQ:
+                    BNE:
+                    BLT:
+                    BGE:
+                    BLTU:
+                    BGEU:
+                endcase
+            end
+
+            JAL:
+
+            JALR:
+
+       endcase
+    // Assign value of every single output 
+
+    end
 endmodule 
