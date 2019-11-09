@@ -24,7 +24,7 @@ module Control_Unit(
 
     // Command code --> distinguish 1 command from others in a command class
     parameter 
-        ADD_SUB = 3'b000, ADDI = 3'b000, LB = 3'b000, SB = 3'b000, BEQ = 3'b000, JALR = 3'b000,
+        ADD_SUB = 3'b000, ADDI = 3'b000, LB = 3'b000, SB = 3'b000, BEQ = 3'b000,
         SLL = 3'b001, SLLI = 3'b001, SH = 3'b001, BNE = 3'b001,
         SLT = 3'b010, SLTI = 3'b010, LH = 3'b010, SW = 3'b010, 
         SLTU = 3'b011, SLTIU = 3'b011, LW = 3'b011, 
@@ -88,7 +88,7 @@ module Control_Unit(
                 endcase
             end
 
-            B: begin
+            B: begin        // CHANGE THIS !!!
                 case (inst[14:12])
                     BEQ:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
                     BNE:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
