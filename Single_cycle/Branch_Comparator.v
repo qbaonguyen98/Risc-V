@@ -13,7 +13,7 @@ module Branch_Comparator(rs1_out, rs2_out, cmpop, br_eq, br_lt);
             else
                 br_lt <= 1'b0;
         end
-        else begin      // k dau
+        else begin      // k dau hoac co dau va = nhau
             if(rs1_out == rs2_out)
                 br_eq <= 1'b1;
 		    else 

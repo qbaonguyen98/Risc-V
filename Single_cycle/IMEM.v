@@ -22,7 +22,7 @@ module IMEM(PC, inst);
     assign		pByte = PC[1:0];
 
     initial begin
-    $readmemh("../factorial.txt",IMEM);       // change this to your path
+    $readmemh("../test.txt",IMEM);       // change this to your path
     end
 
     always@(PC)

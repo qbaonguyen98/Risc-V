@@ -90,12 +90,30 @@ module Control_Unit(
 
             B: begin        // CHANGE THIS !!!
                 case (inst[14:12])
-                    BEQ:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                    BNE:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                    BLT:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                    BGE:    data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                    BLTU:   data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
-                    BGEU:   data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
+                    BEQ: begin
+                        if (BrEq == 1)      data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                    end
+                    BNE: begin
+                        if (BrEq == 0)      data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                    end 
+                    BLT: begin
+                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                    end
+                    BGE: begin
+                        if (BrEq == 1 && BrLt == 0)     data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                    end
+                    BLTU: begin
+                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_0_0_0_0_00_zz_zzz_zzz_0000;
+                    end
+                    BGEU: begin
+                        if (BrEq == 1 && BrLt == 0)     data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
+                        else    data_out <= 20'b0_0_0_0_0_0_00_zz_zzz_zzz_0000;
+                    end
                 endcase
             end
 
