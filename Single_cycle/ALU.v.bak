@@ -25,7 +25,7 @@ module ALU(alumux1_out, alumux2_out, aluop, aluout);
                 aluout <= alumux1_out << alumux2_out;
 
             6:  // SRL: shift right logical
-                aluout <= alumux1_out >> alumux2_out;
+                aluout <= alumux1_out >> alumux2_ou;
 
             7:  // SRA: shift right arithmetic
                 aluout <= alumux1_out >>> alumux2_out;

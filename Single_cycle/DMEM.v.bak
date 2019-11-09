@@ -1,7 +1,7 @@
-module DMEM(clk, Addr, DataW, MemRW, DataR);
+module DMEM(clk, Addr, DataW, MemRW, DataR));
     parameter	MEM_WIDTH_LENGTH = 32;          
     parameter	MEM_DEPTH = 1<<18;  
-    reg		[MEM_WIDTH_LENGTH-1:0] DMEM[0:MEM_DEPTH-1]; 
+    reg		[MEM_WIDTH_LENGTH-1:0] IMEM[0:MEM_DEPTH-1]; 
 
     input clk, MemRW;           
     input [MEM_WIDTH_LENGTH:0] Addr, DataW;

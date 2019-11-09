@@ -13,6 +13,6 @@ module pc(clk, rst, pc_in, pc_out);
     if (rst==1)
         pc_out <= 32'b00000000_00000000_00000000_00000000;
     else 
-        pc_out <= pc_in; 
-    end   
+        pc_out <= pc_in;
+    
 endmodule 

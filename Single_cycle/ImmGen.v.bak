@@ -19,7 +19,7 @@ module ImmGen(imm_in, ImmSel, imm_out);
             imm_out <= { imm_in[31:12], 12'b0 };
         
         3'd4:     // JAL 
-            imm_out <= { {12{imm_in[31]}}, imm_in[19:12], imm_in[20], imm_in[30:21], 1'b0 };
+            imm_out <= { {12{imm_in[31]}}, imm_in[19:12], imm_in[20], imm_in[30, 21], 1'b0 };
         endcase
     end
 endmodule
