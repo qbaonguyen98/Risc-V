@@ -24,80 +24,84 @@ module Control_Unit(
 
     // Command code --> distinguish 1 command from others in a command class
     parameter 
-        ADD = 3'b000, SUB = 3'b000, ADDI = 3'b000, LB = 3'b000, SB = 3'b000, BEQ = 3'b000, JALR = 3'b000,
+        ADD_SUB = 3'b000, ADDI = 3'b000, LB = 3'b000, SB = 3'b000, BEQ = 3'b000, JALR = 3'b000,
         SLL = 3'b001, SLLI = 3'b001, SH = 3'b001, BNE = 3'b001,
         SLT = 3'b010, SLTI = 3'b010, LH = 3'b010, SW = 3'b010, 
         SLTU = 3'b011, SLTIU = 3'b011, LW = 3'b011, 
         XOR = 3'b100, XORI = 3'b100, LBU = 3'b100, BLT = 3'b100,
-        SRL = 3'b101, SRA = 3'b101, SRLI = 3'b101, SRAI = 3'b101, LHU = 3'b101, BGE = 3'b101, 
+        SRL_SRA = 3'b101, SRLI_SRAI = 3'b101, LHU = 3'b101, BGE = 3'b101, 
         OR = 3'b110, ORI = 3'b110, BLTU = 3'b110,
         AND = 3'b111, ANDI = 3'b111, BGEU = 3'b111;
-        // JAL --> in case you forgot it 
     
     always@ (*) begin
        case (inst[6:2])
             R: begin
                 case (inst[14:12])
-                    ADD:
-                    SUB:
-                    SLL:
-                    SLT:
-                    SLTU:
-                    XOR:
-                    SRL:
-                    SRA:
-                    OR:
-                    AND:
+                    ADD_SUB: begin
+                        if (inst[30] == 0)  data_out <=
+                        else    data_out <= 
+                    end
+                    SLL:    data_out <=
+                    SLT:    data_out <=
+                    SLTU:   data_out <=
+                    XOR:    data_out <=
+                    SRL_SRA: begin
+                        if (inst[30] == 0)  data_out <=
+                        else    data_out <=
+                    end
+                    OR:     data_out <=
+                    AND:    data_out <=
                 endcase
             end
             
             I_arith: begin
                 case (inst[14:12])
-                    ADDI:
-                    SLTI:
-                    SLTIU:
-                    XORI:
-                    ORI:
-                    ANDI:
-                    SLLI:
-                    SRLI:
-                    SRAI:
+                    ADDI:   data_out <=
+                    SLTI:   data_out <=
+                    SLTIU:  data_out <=
+                    XORI:   data_out <=
+                    ORI:    data_out <=
+                    ANDI:   data_out <=
+                    SLLI:   data_out <=
+                    SRLI_SRAI: begin
+                        if (inst[30] == 0)  data_out <=
+                        else    data_out <=
+                    end
                 endcase
             end
 
             I_load: begin
                 case (inst[14:12])
-                    LB:
-                    LH:
-                    LW:
-                    LBU:
-                    LHU:
+                    LB:     data_out <=
+                    LH:     data_out <=
+                    LW:     data_out <=
+                    LBU:    data_out <=
+                    LHU:    data_out <=
                 endcase
             end
 
             S: begin
                 case (inst[14:12])
-                    SB:
-                    SH:
-                    SW:
+                    SB:     data_out <=
+                    SH:     data_out <=
+                    SW:     data_out <=
                 endcase
             end
 
             B: begin
                 case (inst[14:12])
-                    BEQ:
-                    BNE:
-                    BLT:
-                    BGE:
-                    BLTU:
-                    BGEU:
+                    BEQ:    data_out <=
+                    BNE:    data_out <=
+                    BLT:    data_out <=
+                    BGE:    data_out <=
+                    BLTU:   data_out <=
+                    BGEU:   data_out <=
                 endcase
             end
 
-            JAL:
+            JAL:    data_out <=
 
-            JALR:
-
+            JALR:   data_out <=
        endcase
     // Assign value of every single output 
 
