@@ -1,3 +1,4 @@
+`timescale 1ps/1ps 
 module testbench();
     reg clk,rst;
     map map(rst, clk);

@@ -1,3 +1,4 @@
+`timescale 1ps/1ps
 module Reg(clk, RegWEn, inst, DataD, DataA, DataB);
     input clk, RegWEn;
     input [31:0] inst, DataD;   // DataD = wb: data ghi nguoc

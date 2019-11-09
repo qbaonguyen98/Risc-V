@@ -1,3 +1,4 @@
+`timescale 1ps/1ps 
 module map(rst, clk);
     input rst, clk;
 
@@ -12,7 +13,7 @@ module map(rst, clk);
     wire    br_eq, br_lt,
             pcmux_sel, regfilemux_sel, cmpop, alumux1_sel, alumux2_sel, dmem_sel;
 
-    mux2 pcmux(pcmux_del, pc_plus4_out, aluout, pc_in);
+    mux2 pcmux(pcmux_sel, pc_plus4_out, aluout, pc_in);
     pc pc(clk, rst, pc_in, pc_out);
     plus4 plus4(pc_out, pc_plus4_out);
     IMEM IMEM(pc_out, inst);

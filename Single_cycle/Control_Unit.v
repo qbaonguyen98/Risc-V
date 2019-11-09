@@ -38,30 +38,30 @@ module Control_Unit(
             R: begin
                 case (inst[14:12])
                     ADD_SUB: begin
-                        if (inst[30] == 0)  data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0000;
-                        else    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0001;
+                        if (inst[30] == 0)  data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0000;
+                        else    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0001;
                     end
-                    SLL:    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0101;
-                    SLT:    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_1000;
-                    SLTU:   data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_1001;
-                    XOR:    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0100;
+                    SLL:    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0101;
+                    SLT:    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_1000;
+                    SLTU:   data_out <= 20'b0_1_0_0_0_0_01_11_111_111_1001;
+                    XOR:    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0100;
                     SRL_SRA: begin
-                        if (inst[30] == 0)  data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0110;
-                        else    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0111;
+                        if (inst[30] == 0)  data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0110;
+                        else    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0111;
                     end
-                    OR:     data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0011;
-                    AND:    data_out <= 20'b0_1_z_0_0_0_01_zz_zzz_zzz_0010;
+                    OR:     data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0011;
+                    AND:    data_out <= 20'b0_1_0_0_0_0_01_11_111_111_0010;
                 endcase
             end
             
             I_arith: begin
                 case (inst[14:12])
-                    ADDI:   data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_0000;
-                    SLTI:   data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_1000;
-                    SLTIU:  data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_1001;
-                    XORI:   data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_0100;
-                    ORI:    data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_0011;
-                    ANDI:   data_out <= 20'b0_1_z_1_0_0_01_zz_zzz_000_0010;
+                    ADDI:   data_out <= 20'b0_1_0_1_0_0_01_11_111_000_0000;
+                    SLTI:   data_out <= 20'b0_1_0_1_0_0_01_11_111_000_1000;
+                    SLTIU:  data_out <= 20'b0_1_0_1_0_0_01_11_111_000_1001;
+                    XORI:   data_out <= 20'b0_1_0_1_0_0_01_11_111_000_0100;
+                    ORI:    data_out <= 20'b0_1_0_1_0_0_01_11_111_000_0011;
+                    ANDI:   data_out <= 20'b0_1_0_1_0_0_01_11_111_000_0010;
                     // SLLI:   data_out <=
                     // SRLI_SRAI: begin
                     //     if (inst[30] == 0)  data_out <=
@@ -72,54 +72,54 @@ module Control_Unit(
 
             I_load: begin
                 case (inst[14:12])
-                    LB:     data_out <= 20'b0_1_z_1_0_0_00_zz_000_000_0000;
-                    LH:     data_out <= 20'b0_1_z_1_0_0_00_zz_010_000_0000;
-                    LW:     data_out <= 20'b0_1_z_1_0_0_00_zz_011_000_0000;
-                    LBU:    data_out <= 20'b0_1_z_1_0_0_00_zz_100_000_0000;
-                    LHU:    data_out <= 20'b0_1_z_1_0_0_00_zz_101_000_0000;
+                    LB:     data_out <= 20'b0_1_0_1_0_0_00_11_000_000_0000;
+                    LH:     data_out <= 20'b0_1_0_1_0_0_00_11_010_000_0000;
+                    LW:     data_out <= 20'b0_1_0_1_0_0_00_11_011_000_0000;
+                    LBU:    data_out <= 20'b0_1_0_1_0_0_00_11_100_000_0000;
+                    LHU:    data_out <= 20'b0_1_0_1_0_0_00_11_101_000_0000;
                 endcase
             end
 
             S: begin
                 case (inst[14:12])
-                    SB:     data_out <= 20'b0_0_z_1_0_1_00_00_zzz_001_0000;
-                    SH:     data_out <= 20'b0_0_z_1_0_1_00_01_zzz_001_0000;
-                    SW:     data_out <= 20'b0_0_z_1_0_1_00_10_zzz_001_0000;
+                    SB:     data_out <= 20'b0_0_0_1_0_1_00_00_111_001_0000;
+                    SH:     data_out <= 20'b0_0_0_1_0_1_00_01_111_001_0000;
+                    SW:     data_out <= 20'b0_0_0_1_0_1_00_10_111_001_0000;
                 endcase
             end
 
             B: begin        // CHANGE THIS !!!
                 case (inst[14:12])
                     BEQ: begin
-                        if (BrEq == 1)      data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 1)      data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end
                     BNE: begin
-                        if (BrEq == 0)      data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 0)      data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end 
                     BLT: begin
-                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end
                     BGE: begin
-                        if (BrEq == 1 && BrLt == 0)     data_out <= 20'b1_0_1_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_1_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 1 || BrLt == 0)     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end
                     BLTU: begin
-                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_0_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_0_0_0_0_00_11_111_111_0000;
                     end
                     BGEU: begin
-                        if (BrEq == 1 && BrLt == 0)     data_out <= 20'b1_0_0_1_1_0_00_zz_zzz_010_0000;
-                        else    data_out <= 20'b0_0_0_0_0_0_00_zz_zzz_zzz_0000;
+                        if (BrEq == 1 || BrLt == 0)     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
+                        else    data_out <= 20'b0_0_0_0_0_0_00_11_111_111_0000;
                     end
                 endcase
             end
 
-            JAL:    data_out <= 20'b1_1_z_1_1_0_10_zz_zzz_100_0000;
+            JAL:    data_out <= 20'b1_1_0_1_1_0_10_11_111_100_0000;
 
-            JALR:   data_out <= 20'b1_1_z_1_0_0_10_zz_zzz_000_0000;
+            JALR:   data_out <= 20'b1_1_0_1_0_0_10_11_111_000_0000;
         endcase
 //  Assign value of every single output: 
 //  data_out[14:0] = PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_WSel(2)_RSel(3)_ImmSel(3)_ALUSel(4)
