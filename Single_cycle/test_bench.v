@@ -1,6 +1,6 @@
 `timescale 1ps/1ps 
 module testbench();
-    reg clk,rst;
+    reg clk, rst;
     map map(rst, clk);
 
     initial begin
