@@ -14,13 +14,14 @@ module Control_Unit(
     reg [19:0] data_out; // PCSel_RegWEn_BrUn_BSel_ASel_MemRW_WBSel(2)_WSel(2)_RSel(3)_ImmSel(3)_ALUSel(4)
 
     // Command classes
-    parameter R = 5'b01100;
-    parameter I_arith = 5'b00100;
-    parameter I_load = 5'b00000;
-    parameter S = 5'b01000;
-    parameter B = 5'b11000;
-    parameter JAL = 5'b11011;
-    parameter JALR = 5'b11001;
+    parameter   
+        R = 5'b01100,
+        I_arith = 5'b00100,
+        I_load = 5'b00000,
+        S = 5'b01000,
+        B = 5'b11000,
+        JAL = 5'b11011,
+        JALR = 5'b11001;
 
     // Command code --> distinguish 1 command from others in a command class
     parameter 
@@ -99,19 +100,19 @@ module Control_Unit(
                         else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end 
                     BLT: begin
-                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        if ((BrEq == 0) && (BrLt == 1))     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
                         else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end
                     BGE: begin
-                        if (BrEq == 1 || BrLt == 0)     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
+                        if ((BrEq == 1) || (BrLt == 0))     data_out <= 20'b1_0_1_1_1_0_00_11_111_010_0000;
                         else    data_out <= 20'b0_0_1_0_0_0_00_11_111_111_0000;
                     end
                     BLTU: begin
-                        if (BrEq == 0 && BrLt == 1)     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
+                        if ((BrEq == 0) && (BrLt == 1))     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
                         else    data_out <= 20'b0_0_0_0_0_0_00_11_111_111_0000;
                     end
                     BGEU: begin
-                        if (BrEq == 1 || BrLt == 0)     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
+                        if ((BrEq == 1) || (BrLt == 0))     data_out <= 20'b1_0_0_1_1_0_00_11_111_010_0000;
                         else    data_out <= 20'b0_0_0_0_0_0_00_11_111_111_0000;
                     end
                 endcase

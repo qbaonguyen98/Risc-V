@@ -1,4 +1,3 @@
-`timescale 1ps/1ps 
 module map(rst, clk);
     input rst, clk;
 

@@ -1,0 +1,290 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+vALU
+Z0 !s110 1573545877
+!i10b 1
+!s100 ?515NZeMfSI?:`e_:W;Y`2
+I^:j9`dl79U6dL07=R]6hj1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/reusn/Desktop/BTL-RISC-V/modelsim
+Z3 w1573322389
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v
+L0 1
+Z4 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z5 !s108 1573545877.000000
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v|
+!s101 -O0
+!i113 1
+Z6 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@a@l@u
+vBranch_Comparator
+R0
+!i10b 1
+!s100 Ko2YOO>:KnTneXgaj6VEn2
+I2ifTJzOKjWdekEVnJ@;cG2
+R1
+R2
+w1573545715
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v|
+!s101 -O0
+!i113 1
+R6
+n@branch_@comparator
+vControl_Unit
+Z7 !s110 1573545878
+!i10b 1
+!s100 3fMz=YlDT6Ia?KkVU0DUJ0
+I6FIgWL@o=BW8H@1cW4UZa0
+R1
+R2
+w1573545828
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v|
+!s101 -O0
+!i113 1
+R6
+n@control_@unit
+vDMEM
+R7
+!i10b 1
+!s100 W?Fd3ch>M9WUh<c89TX5K2
+IM8U`F3Bn>^]4I>KjbKd`d0
+R1
+R2
+w1573541875
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v
+L0 2
+R4
+r1
+!s85 0
+31
+Z8 !s108 1573545878.000000
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v|
+!s101 -O0
+!i113 1
+R6
+n@d@m@e@m
+vIMEM
+R7
+!i10b 1
+!s100 I_h<TTzfNiZ?m67EL]^OL1
+IWfT5>E1W=kPEX4i5<nCcF2
+R1
+R2
+w1573541470
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v
+L0 6
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v|
+!s101 -O0
+!i113 1
+R6
+n@i@m@e@m
+vImmGen
+R7
+!i10b 1
+!s100 QVS?l7AHWCZk^9YRE:Ul]3
+I:Ag@JN0D:`hRNAY0Oai913
+R1
+R2
+R3
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v|
+!s101 -O0
+!i113 1
+R6
+n@imm@gen
+vmap
+R7
+!i10b 1
+!s100 WONL780DX7R;:DTiQg2]Z1
+Im3MUC3C_3<Ml1V][34l=U0
+R1
+R2
+w1573541377
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v|
+!s101 -O0
+!i113 1
+R6
+vmux2
+R7
+!i10b 1
+!s100 V3j[AiAJ^k>JD;B2o8<ZS0
+IY<m=F4BjHP1Wmlia6JS471
+R1
+R2
+R3
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v|
+!s101 -O0
+!i113 1
+R6
+vmux3
+R7
+!i10b 1
+!s100 Zl9mn<iIhNYbTYcb6ieoH2
+I4BK;FQYkId><YLbcRbGz;2
+R1
+R2
+R3
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v|
+!s101 -O0
+!i113 1
+R6
+vpc
+R7
+!i10b 1
+!s100 `YHAOoTD6Pd5Hd;Y8dOXa3
+INJl39O^f:TO53=35SLRA80
+R1
+R2
+w1573545857
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v|
+!s101 -O0
+!i113 1
+R6
+vplus4
+R7
+!i10b 1
+!s100 0N^chl6BS6ekJ>Fh7M9ZR0
+IRG?i@_M6bbJiFTKL]n>MG2
+R1
+R2
+R3
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v|
+!s101 -O0
+!i113 1
+R6
+vReg
+R7
+!i10b 1
+!s100 ;emC`5L]Gm3MNX<nXlb?B2
+Igo]AiRYl>4IMnH4MenSce2
+R1
+R2
+w1573541338
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v
+L0 1
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v|
+!s101 -O0
+!i113 1
+R6
+n@reg
+vtestbench
+R7
+!i10b 1
+!s100 KSMFlN6WJ1k@0kz>[R`W93
+I:]fZ7<OU]XPV6VRl>Rhi51
+R1
+R2
+w1573541257
+8C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v
+FC:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v
+L0 2
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v|
+!s101 -O0
+!i113 1
+R6

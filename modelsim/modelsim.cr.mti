@@ -1,0 +1,92 @@
+C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/test_bench.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/plus4.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module plus4
+
+Top level modules:
+	plus4
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ALU.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/pc.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux2.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mux2
+
+Top level modules:
+	mux2
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/ImmGen.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ImmGen
+
+Top level modules:
+	ImmGen
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/mux3.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module mux3
+
+Top level modules:
+	mux3
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Reg.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Reg
+
+Top level modules:
+	Reg
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/map.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module map
+
+Top level modules:
+	map
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Control_Unit.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Control_Unit
+
+Top level modules:
+	Control_Unit
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/IMEM.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module IMEM
+
+Top level modules:
+	IMEM
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/DMEM.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module DMEM
+
+Top level modules:
+	DMEM
+
+} {} {}} C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v {1 {vlog -work work -stats=none C:/Users/reusn/Desktop/BTL-RISC-V/Code/Single_cycle/Branch_Comparator.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Branch_Comparator
+
+Top level modules:
+	Branch_Comparator
+
+} {} {}}

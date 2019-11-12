@@ -5,7 +5,7 @@ module Branch_Comparator(rs1_out, rs2_out, cmpop, br_eq, br_lt);
     output reg br_eq;       // 0: DataA # DataB 
     output reg br_lt;       // 0: DataA >= DataB
 
-    always@ (rs2_out or rs2_out or cmpop) begin
+    always@ (*) begin
         if (rs1_out[31] != rs2_out[31] && cmpop == 1'b1) begin    // co dau --> chi can so sanh TH khac nhau
             br_eq <= 1'b0;
             if (rs1_out[31] == 1)   // dataA < 0
