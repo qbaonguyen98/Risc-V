@@ -22,7 +22,7 @@ module map_Pineline(rst, clk);
                     bmux_out,
                     //alu_X,          
                     inst_W, wb_out,     // from WRITE BACK stage
-                    alu_W;              // for forwarding
+                    alu_W;              // for forwarding, from WRITE BACK stage
 
         // control signal
         wire        regWEn, br_un, br_eq, br_lt, bsel;
@@ -58,7 +58,7 @@ module map_Pineline(rst, clk);
 
 
     // EXECUTE --------------------------------------------------------------
-    Reg Reg (clk, regWEn, inst_X, wb_out, rs1_X, rs2_X);
+    Reg Reg (clk, regWEn, inst_X, inst_W, wb_out, rs1_X, rs2_X);
     ImmGen ImmGen (inst_X, imm_sel, imm_out);
     Branch_Comparator Branch_Comparator (rs1_X, rs2_X, br_un, br_eq, br_lt);
     //mux3 amux (asel, rs1_X, pc_X, alu_W, amux_out);
@@ -67,7 +67,7 @@ module map_Pineline(rst, clk);
     ALU ALU (amux_out, bmux_out, alu_sel, alu_X);
 
             // latches
-    latch pc_W_latch (clk, pcX, pc_W);
+    latch pc_W_latch (clk, pc_X, pc_W);
     latch alu_W_latch (clk, alu_X, alu_W);
     latch rs2_W_latch (clk, rs2_X, rs2_W);
     latch inst_W_latch (clk, inst_X, inst_W);
@@ -79,7 +79,13 @@ module map_Pineline(rst, clk);
     mux3 wbmux (wb_sel, dmem_out, alu_W, pc_W_plus4, wb_out);
 
 
+    // CONTROL UNIT ---------------------------------------------------------
+    Control_Unit CU (   
+                        //input
+                        inst_F, br_eq, br_lt, 
 
-    Control_Unit CU (inst_F, br_eq, br_lt, pc_F_sel, imm_sel, regWEn, br_un, asel, bsel, alu_sel, dmem_sel, r_sel, w_sel, wb_sel);
+                        // output
+                        pc_F_sel, imm_sel, regWEn, br_un, bsel, asel, alu_sel, dmem_sel, r_sel, w_sel, wb_sel
+    );
                 
 endmodule
