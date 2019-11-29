@@ -1,7 +1,7 @@
 `timescale 1ps/1ps 
 module testbench();
     reg clk,rst;
-    map map(rst, clk);
+    map_Pineline map_Pineline(rst, clk);
 
     initial begin
         rst = 0;
@@ -9,7 +9,7 @@ module testbench();
     end
 
     always begin
-            #500 clk = !clk;
+            #200 clk = !clk;
     end
 endmodule
 
