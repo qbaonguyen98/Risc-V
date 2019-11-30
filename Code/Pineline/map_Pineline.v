@@ -21,8 +21,7 @@ module map_Pineline(rst, clk);
                     amux_out,
                     bmux_out,
                     //alu_X,          
-                    inst_W, wb_out,     // from WRITE BACK stage
-                    alu_W;              // for forwarding, from WRITE BACK stage
+                    inst_W, wb_out;     // from WRITE BACK stage
 
         // control signal
         wire        regWEn, br_un, br_eq, br_lt, bsel, asel;
@@ -33,7 +32,7 @@ module map_Pineline(rst, clk);
     
     // WRITE BACK -------------------------------------------------------------
     wire [31:0]     pc_W,
-                    //alu_W,    // addr
+                    alu_W,    // addr
                     rs2_W,      // data_W
                     //inst_W,
                     dmem_out;
