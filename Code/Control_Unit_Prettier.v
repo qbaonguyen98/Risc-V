@@ -75,11 +75,11 @@ module Control_Unit(
 
             I_load: begin
                 case (inst[14:12])
-                    LB:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_000_01;
-                    LH:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_010_01;
-                    LW:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_011_01;
-                    LBU:        data_out <= 20'b0_000_1_0_1_0_0000_0_11_100_01;
-                    LHU:        data_out <= 20'b0_000_1_0_1_0_0000_0_11_101_01;
+                    LB:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_000_00;
+                    LH:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_010_00;
+                    LW:         data_out <= 20'b0_000_1_0_1_0_0000_0_11_011_00;
+                    LBU:        data_out <= 20'b0_000_1_0_1_0_0000_0_11_100_00;
+                    LHU:        data_out <= 20'b0_000_1_0_1_0_0000_0_11_101_00;
                 endcase
             end
 
@@ -148,9 +148,7 @@ module Control_Unit(
         MemRW   <= data_out[7];
         WSel    <= data_out[6:5];
         RSel    <= data_out[4:2];
-        WBSel   <= data_out[1:0];
-        
-        
-
+        WBSel   <= data_out[1:0];       
     end
+    
 endmodule 

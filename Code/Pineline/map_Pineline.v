@@ -25,10 +25,11 @@ module map_Pineline(rst, clk);
                     alu_W;              // for forwarding, from WRITE BACK stage
 
         // control signal
-        wire        regWEn, br_un, br_eq, br_lt, bsel;
-        wire [1:0]  asel;
+        wire        regWEn, br_un, br_eq, br_lt, bsel, asel;
         wire [2:0]  imm_sel;
-        wire [3:0]  alu_sel; 
+        wire [3:0]  alu_sel;
+        // control F stage
+        wire X_ctrl;
     
     // WRITE BACK -------------------------------------------------------------
     wire [31:0]     pc_W,
@@ -80,12 +81,10 @@ module map_Pineline(rst, clk);
 
 
     // CONTROL UNIT ---------------------------------------------------------
-    Control_Unit CU (   
-                        //input
-                        inst_F, br_eq, br_lt, 
+    Control_F CU_F (clk, X_ctrl, pc_F_sel);
 
-                        // output
-                        pc_F_sel, imm_sel, regWEn, br_un, bsel, asel, alu_sel, dmem_sel, r_sel, w_sel, wb_sel
-    );
-                
+    Control_X CU_X (inst_F, inst_X, imm_sel, regWEn, br_un, br_eq, br_lt, bsel, asel, alu_sel);
+
+    Control_W CU_W (inst_W, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel);
+    
 endmodule

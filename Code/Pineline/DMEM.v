@@ -1,3 +1,4 @@
+`timescale 1ps/1ps 
 module DMEM(clk, Addr, DataW, MemRW, WSel, RSel, DataR);
     parameter	MEM_WIDTH_LENGTH = 32;          
     parameter	MEM_DEPTH = 1<<18;  
@@ -19,7 +20,9 @@ module DMEM(clk, Addr, DataW, MemRW, WSel, RSel, DataR);
     assign tempR = DMEM[pWord];
     assign tempW = DMEM[pWord];
 
-    always@ (posedge clk) begin
+    // always@ (posedge clk) begin
+    always@ (*) begin
+    #5  // assure MemRW was updated
         if (MemRW == 0) begin   // read
             if (pByte == 2'b00) begin
                 case (RSel)

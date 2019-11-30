@@ -1,6 +1,6 @@
 module mux2(sel, in1, in2, out);
 
-    input  sel;
+    input sel;
     input [31:0] in1;
     input [31:0] in2;
 
