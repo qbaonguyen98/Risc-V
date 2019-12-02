@@ -24,7 +24,6 @@ module Reg(clk, RegWEn, inst_X, inst_W, DataD, DataA, DataB);
     // always@ (posedge clk) begin
     always@ (*) begin
         data[0] <= 32'b0;            //  r0 luon = 0
-        if (RegWEn)
-            data[AddrD] <= DataD;    // ghi ket qua vao rd
+        if (RegWEn)     data[AddrD] <= DataD;    // ghi ket qua vao rd
     end
 endmodule

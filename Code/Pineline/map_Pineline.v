@@ -21,7 +21,7 @@ module map_Pineline(rst, clk);
                     amux_out,
                     bmux_out,
                     //alu_X,          
-                    inst_W, wb_out;     // from WRITE BACK stage
+                    inst_W_out, wb_out;     // from WRITE BACK stage
 
         // control signal
         wire        regWEn, br_un, br_eq, br_lt, bsel, asel;
@@ -34,7 +34,7 @@ module map_Pineline(rst, clk);
     wire [31:0]     pc_W,
                     alu_W,    // addr
                     rs2_W,      // data_W
-                    //inst_W,
+                    inst_W_in,
                     dmem_out;
         
         // control signal
@@ -58,7 +58,7 @@ module map_Pineline(rst, clk);
 
 
     // EXECUTE --------------------------------------------------------------
-    Reg Reg (clk, regWEn, inst_X, inst_W, wb_out, rs1_X, rs2_X);
+    Reg Reg (clk, regWEn, inst_X, inst_W_out, wb_out, rs1_X, rs2_X);
     ImmGen ImmGen (inst_X, imm_sel, imm_out);
     Branch_Comparator Branch_Comparator (rs1_X, rs2_X, br_un, br_eq, br_lt);
     //mux3 amux (asel, rs1_X, pc_X, alu_W, amux_out);
@@ -70,7 +70,7 @@ module map_Pineline(rst, clk);
     latch pc_W_latch (clk, pc_X, pc_W);
     latch alu_W_latch (clk, alu_X, alu_W);
     latch rs2_W_latch (clk, rs2_X, rs2_W);
-    latch inst_W_latch (clk, inst_X, inst_W);
+    latch inst_W_latch (clk, inst_X, inst_W_in);
     
 
     // WRITE BACK -----------------------------------------------------------
@@ -84,6 +84,6 @@ module map_Pineline(rst, clk);
 
     Control_X CU_X (inst_F, inst_X, imm_sel, regWEn, br_un, br_eq, br_lt, bsel, asel, alu_sel);
 
-    Control_W CU_W (inst_W, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel);
+    Control_W CU_W (inst_W_in, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel, inst_W_out);
     
 endmodule
