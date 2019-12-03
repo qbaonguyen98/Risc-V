@@ -36,6 +36,7 @@ module map_Pineline(rst, clk);
                     alu_W,    // addr
                     rs2_W,      // data_W
                     //inst_W,
+                    pc_W_plus4,
                     dmem_out;
         
         // control signal

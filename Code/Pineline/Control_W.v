@@ -103,12 +103,12 @@ module Control_W (inst_W, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel, regWEn);
 
             JAL: begin
             // data_out = DmemSel_WSel_RSel_WBSel_regWEn
-                data_out <= 9'b0_11_111_10_0;
+                data_out <= 9'b0_11_111_10_1;
             end
             
             JALR: begin
             // data_out = DmemSel_WSel_RSel_WBSel_regWEn
-                data_out <= 9'b0_11_111_10_0;
+                data_out <= 9'b0_11_111_10_1;
             end   
         endcase
 

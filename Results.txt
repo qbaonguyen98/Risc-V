@@ -1,0 +1,11 @@
+Pineline-3 result:
+
+	1) factorial:
+
+		- pineline: 169000 ps
+		- single-cycle: 322500 ps
+
+	2) arrangement:
+
+		- pineline: 1247400 ps
+		- single-cycle: 2446500 ps
