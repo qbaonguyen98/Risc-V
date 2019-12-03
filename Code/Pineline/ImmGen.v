@@ -1,3 +1,4 @@
+`timescale 1ps/1ps
 module ImmGen(imm_in, ImmSel, imm_out);
     input [31:0] imm_in;    // inst
     input [2:0] ImmSel;

@@ -1,15 +1,13 @@
 addi 	a0,zero,12
-sw	a0, 44(gp)
-lw 	a3, 44(gp)
+addi 	a1,zero,12
+addi 	a2,zero,9
 
-add a4, a3, a0
+beq	a0, a1, SAVE
 
-addi	a1,a0,18
-addi	a2,a1,29
-add 	a5, a1, a2
+bne 	a0, a1, LOOP
 
-sw	a5, 48(gp)
+SAVE:
+sw	a2, 44(zero)
 
-add  	a2, a1, a0
-sw	a2,44(zero)
-
+LOOP:
+addi	a1, a1, 1

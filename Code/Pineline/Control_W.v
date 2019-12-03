@@ -1,13 +1,13 @@
-module Control_W (inst_W_in, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel, inst_W_out);
+module Control_W (inst_W, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel, regWEn);
 
-    input [31:0] inst_W_in;
+    input [31:0] inst_W;
     input pc_W_sel;
 
     output reg dmem_sel;
     output reg [1:0] w_sel;
     output reg [2:0] r_sel;
     output reg [1:0] wb_sel;
-    output reg [31:0] inst_W_out;
+    output reg regWEn;
 
     // Command Category ----------------------------------------------------------------------
     parameter   
@@ -29,135 +29,95 @@ module Control_W (inst_W_in, pc_W_sel, dmem_sel, w_sel, r_sel, wb_sel, inst_W_ou
         OR      = 3'b110,   ORI     = 3'b110,   BLTU    = 3'b110,
         AND     = 3'b111,   ANDI    = 3'b111,   BGEU    = 3'b111;
 
-    // data_out = DmemSel_WSel_RSel_WBSel ----------------------------------------------------
-    reg [7:0] data_out;
-    reg [31:0] temp; 
+    // data_out = DmemSel_WSel_RSel_WBSel_regWEn ----------------------------------------------------
+    reg [8:0] data_out;
 
     always@ (*) begin
-        case (inst_W_in[6:2])
+        case (inst_W[6:2])
             R: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                case (inst_W_in[14:12])
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                case (inst_W[14:12])
                     ADD_SUB: begin
-                        if (inst_W_in[30] == 0)  
-                                data_out <= 8'b0_11_111_01;
-                        else    data_out <= 8'b0_11_111_01;
+                        if (inst_W[30] == 0)  
+                                data_out <= 9'b0_11_111_01_1;
+                        else    data_out <= 9'b0_11_111_01_1;
                     end
-                    SLL:        data_out <= 8'b0_11_111_01;
-                    SLT:        data_out <= 8'b0_11_111_01;
-                    SLTU:       data_out <= 8'b0_11_111_01;
-                    XOR:        data_out <= 8'b0_11_111_01;
+                    SLL:        data_out <= 9'b0_11_111_01_1;
+                    SLT:        data_out <= 9'b0_11_111_01_1;
+                    SLTU:       data_out <= 9'b0_11_111_01_1;
+                    XOR:        data_out <= 9'b0_11_111_01_1;
                     SRL_SRA: begin
-                        if (inst_W_in[30] == 0)
-                                data_out <= 8'b0_11_111_01;
-                        else    data_out <= 8'b0_11_111_01;
+                        if (inst_W[30] == 0)
+                                data_out <= 9'b0_11_111_01_1;
+                        else    data_out <= 9'b0_11_111_01_1;
                     end
-                    OR:         data_out <= 8'b0_11_111_01;
-                    AND:        data_out <= 8'b0_11_111_01;
+                    OR:         data_out <= 9'b0_11_111_01_1;
+                    AND:        data_out <= 9'b0_11_111_01_1;
                 endcase
-                temp <= inst_W_in;
             end
 
             I_arith: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                case (inst_W_in[14:12])
-                    ADDI:       data_out <= 8'b0_11_111_01;
-                    SLTI:       data_out <= 8'b0_11_111_01;
-                    SLTIU:      data_out <= 8'b0_11_111_01;
-                    XORI:       data_out <= 8'b0_11_111_01;
-                    ORI:        data_out <= 8'b0_11_111_01;
-                    ANDI:       data_out <= 8'b0_11_111_01;
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                case (inst_W[14:12])
+                    ADDI:       data_out <= 9'b0_11_111_01_1;
+                    SLTI:       data_out <= 9'b0_11_111_01_1;
+                    SLTIU:      data_out <= 9'b0_11_111_01_1;
+                    XORI:       data_out <= 9'b0_11_111_01_1;
+                    ORI:        data_out <= 9'b0_11_111_01_1;
+                    ANDI:       data_out <= 9'b0_11_111_01_1;
                     // SLLI:   data_out <=
                     // SRLI_SRAI: begin
-                    //     if (inst_W_in[30] == 0)  data_out <=
+                    //     if (inst_W[30] == 0)  data_out <=
                     //     else    data_out <=
                     // end
                 endcase
-                temp <= inst_W_in;
             end
 
             I_load: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                case (inst_W_in[14:12])
-                    LB:         data_out <= 8'b0_11_000_00;
-                    LH:         data_out <= 8'b0_11_010_00;
-                    LW:         data_out <= 8'b0_11_011_00;
-                    LBU:        data_out <= 8'b0_11_100_00;
-                    LHU:        data_out <= 8'b0_11_101_00;
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                case (inst_W[14:12])
+                    LB:         data_out <= 9'b0_11_000_00_1;
+                    LH:         data_out <= 9'b0_11_010_00_1;
+                    LW:         data_out <= 9'b0_11_011_00_1;
+                    LBU:        data_out <= 9'b0_11_100_00_1;
+                    LHU:        data_out <= 9'b0_11_101_00_1;
                 endcase
-                temp <= inst_W_in;
             end
 
             S: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                case (inst_W_in[14:12])
-                    SB:         data_out <= 8'b1_00_111_11;
-                    SH:         data_out <= 8'b1_01_111_11;
-                    SW:         data_out <= 8'b1_10_111_11;
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                case (inst_W[14:12])
+                    SB:         data_out <= 9'b1_00_111_11_0;
+                    SH:         data_out <= 9'b1_01_111_11_0;
+                    SW:         data_out <= 9'b1_10_111_11_0;
                 endcase
-                temp <= 32'b0;
             end
 
             /********************************************************************************************************
              *                  BRANCH INSTRUCTIONS DOES NOT ACCESS DMEM AND WRITE BACK TO REGISTERS                *
              ********************************************************************************************************/
+            B: begin
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                data_out <= 9'bx_xx_xxx_xx_0;
+            end
 
-            // B: begin
-            //     case (inst_W_in[14:12])
-            //         BEQ: begin
-            //             if (BrEq == 1)   
-            //                     data_out <= 8'b1_010_0_1_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_1_0_0_0000_0_11_111_00;
-            //         end
-            //         BNE: begin
-            //             if (BrEq == 0)   
-            //                     data_out <= 8'b1_010_0_1_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_1_0_0_0000_0_11_111_00;
-            //         end 
-            //         BLT: begin
-            //             if ((BrEq == 0) && (BrLt == 1))
-            //                     data_out <= 8'b1_010_0_1_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_1_0_0_0000_0_11_111_00;
-            //         end
-            //         BGE: begin
-            //             if ((BrEq == 1) || (BrLt == 0))     
-            //                     data_out <= 8'b1_010_0_1_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_1_0_0_0000_0_11_111_00;
-            //         end
-            //         BLTU: begin
-            //             if ((BrEq == 0) && (BrLt == 1)) 
-            //                     data_out <= 8'b1_010_0_0_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_0_0_0_0000_0_11_111_00;
-            //         end
-            //         BGEU: begin
-            //             if ((BrEq == 1) || (BrLt == 0))
-            //                     data_out <= 8'b1_010_0_0_1_1_0000_0_11_111_00;
-            //             else    data_out <= 8'b0_111_0_0_0_0_0000_0_11_111_00;
-            //         end
-            //     endcase
-            // end
-
-            
             JAL: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                data_out <= 8'b0_11_111_10;
-                temp <= inst_W_in;
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                data_out <= 9'b0_11_111_10_0;
             end
             
             JALR: begin
-            // data_out = DmemSel_WSel_RSel_WBSel
-                data_out <= 8'b0_11_111_10;
-                temp <= inst_W_in;
+            // data_out = DmemSel_WSel_RSel_WBSel_regWEn
+                data_out <= 9'b0_11_111_10_0;
             end   
         endcase
 
         //  Assign value of every single output: 
-        dmem_sel    <= data_out[7];
-        w_sel       <= data_out[6:5];
-        r_sel       <= data_out[4:2];
-        wb_sel      <= data_out[1:0];
-
-        inst_W_out <= temp;
+        dmem_sel    <= data_out[8];
+        w_sel       <= data_out[7:6];
+        r_sel       <= data_out[5:3];
+        wb_sel      <= data_out[2:1];
+        regWEn      <= data_out[0];
     end
 
 endmodule

@@ -10,7 +10,7 @@ jal	ra,MUL
 add	a2,zero,t0
 bne	a1,a0,LOOP
 SAVE:
-sw	a2,44(gp)
+sw	a2,44(zero)
 jal	zero,DONE
 MUL:
 andi	t0,t0,0
